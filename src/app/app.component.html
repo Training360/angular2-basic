@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Users</h2>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th (click)="onSort('id')">#</th>
+            <th (click)="onSort('first_name')">Fname
+              <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+              <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+            </th>
+            <th (click)="onSort('last_name')">Lname</th>
+            <th (click)="onSort('email')">Email</th>
+            <th (click)="onSort('gender')">Gender</th>
+            <th (click)="onSort('address')">Address</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of list | async | sorter:sortKey:sortDirection">
+            <td>{{ row.id }}</td>
+            <td>{{ row.first_name }}</td>
+            <td>{{ row.last_name }}</td>
+            <td>{{ row.email }}</td>
+            <td>{{ row.gender }}</td>
+            <td>{{ row.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
